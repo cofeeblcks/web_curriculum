@@ -1,4 +1,5 @@
 import { DocumentFavicon } from '@/components/DocumentFavicon'
+import { Marquee } from '@/components/Marquee'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { Education } from '@/components/sections/Education'
@@ -14,7 +15,7 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="grid min-h-screen place-items-center bg-ink-950 text-ink-100/70">
+      <div className="grid min-h-screen place-items-center bg-folio-950 text-folio-100/70">
         Cargando portfolio…
       </div>
     )
@@ -22,10 +23,10 @@ export default function App() {
 
   if (error || !portfolio) {
     return (
-      <div className="grid min-h-screen place-items-center bg-ink-950 px-6 text-center text-ink-100">
+      <div className="grid min-h-screen place-items-center bg-folio-950 px-6 text-center text-folio-50">
         <div>
           <p className="font-display text-2xl">No se pudo cargar el portfolio</p>
-          <p className="mt-2 text-ink-100/60">{error || 'Sin datos'}</p>
+          <p className="mt-2 text-folio-100/60">{error || 'Sin datos'}</p>
         </div>
       </div>
     )
@@ -34,11 +35,12 @@ export default function App() {
   const { profile, skillCategories, experiences, educations } = portfolio
 
   return (
-    <div className="bg-ink-950">
+    <div className="bg-folio-950">
       <DocumentFavicon logoUrl={profile.logoUrl} />
       <Nav profile={profile} />
       <Hero profile={profile} />
-      <About profile={profile} />
+      <Marquee />
+      <About profile={profile} categories={skillCategories} />
       <Skills categories={skillCategories} />
       <Experience items={experiences} />
       <Education items={educations} />

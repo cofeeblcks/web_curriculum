@@ -5,22 +5,19 @@
   --font-display: 'Fraunces', Georgia, serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
 
-  --color-ink-50: #f3f7f8;
-  --color-ink-100: #d7e4e8;
-  --color-ink-700: #35505a;
-  --color-ink-800: #243f49;
-  --color-ink-900: #12262f;
-  --color-ink-950: #071018;
+  --color-folio-950: #06141e;
+  --color-folio-900: #081b28;
+  --color-folio-800: #0c2433;
+  --color-folio-700: #143044;
+  --color-folio-100: #d7e4e8;
+  --color-folio-50: #f3f7f8;
 
-  --color-sand-50: #f4f7f8;
-  --color-sand-100: #e8eef0;
+  --color-teal: #2980b9;
+  --color-teal-soft: #5dade2;
+  --color-teal-deep: #1f618d;
 
-  --color-accent-200: #99f6e4;
-  --color-accent-300: #5eead4;
-  --color-accent-400: #2dd4bf;
-  --color-accent-500: #0d9488;
-  --color-accent-700: #0f766e;
-  --color-accent-800: #115e59;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -30,10 +27,30 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: #071018;
-  color: #f3f7f8;
+  background: var(--color-folio-950);
+  color: var(--color-folio-50);
+  -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
   font-family: var(--font-display);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
